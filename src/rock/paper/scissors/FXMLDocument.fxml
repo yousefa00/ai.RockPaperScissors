@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="260.0" prefWidth="425.0" style="-fx-background-color: #FFFFFF;" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="rock.paper.scissors.GUIController">
+    <children>
+        <Label fx:id="label" layoutX="126" layoutY="120" minHeight="16" minWidth="69" />
+      <MenuBar layoutX="-1.0" layoutY="2.0" prefHeight="25.0" prefWidth="425.0">
+        <menus>
+          <Menu mnemonicParsing="false" text="File">
+            <items>
+                  <MenuItem fx:id="startMenuItem" mnemonicParsing="false" onAction="#setUp" text="Start" />
+              <MenuItem mnemonicParsing="false" onAction="#systemExit" text="Exit" />
+            </items>
+          </Menu>
+            <Menu fx:id="edit" mnemonicParsing="false" text="Edit" visible="false">
+              <items>
+                <MenuItem fx:id="resetMenuItem" mnemonicParsing="false" onAction="#reset" text="Reset" />
+              </items>
+            </Menu>
+        </menus>
+      </MenuBar>
+      <Line fx:id="line1" endX="75.0" layoutX="224.0" layoutY="210.0" startX="-100.0" visible="false" />
+      <Line fx:id="line2" endX="-50.0" endY="10.0" layoutX="199.0" layoutY="225.0" rotate="90.0" startX="-100.0" startY="10.0" visible="false" />
+      <Line fx:id="line3" endX="-50.0" endY="10.0" layoutX="258.0" layoutY="225.0" rotate="90.0" startX="-100.0" startY="10.0" visible="false" />
+      <Line fx:id="line4" endX="-50.0" endY="10.0" layoutX="315.0" layoutY="225.0" rotate="90.0" startX="-100.0" startY="10.0" visible="false" />
+      <Line fx:id="line5" endX="-50.0" endY="10.0" layoutX="375.0" layoutY="225.0" rotate="90.0" startX="-100.0" startY="10.0" visible="false" />
+      <Label fx:id="title" layoutX="135.0" layoutY="58.0" text="Rock, Paper, Scissors" textFill="#000fff">
+         <font>
+            <Font name="Tempus Sans ITC" size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="author" layoutX="166.0" layoutY="186.0" text="By: Yousef Ahmed" textFill="#000fff">
+         <font>
+            <Font name="Tempus Sans ITC" size="12.0" />
+         </font>
+      </Label>
+      <CheckBox fx:id="easyCheck" layoutX="150.0" layoutY="129.0" mnemonicParsing="false" onMouseClicked="#switchCheck" selected="true" text="Easy">
+         <font>
+            <Font name="Tempus Sans ITC" size="12.0" />
+         </font>
+      </CheckBox>
+      <CheckBox fx:id="hardCheck" layoutX="237.0" layoutY="129.0" mnemonicParsing="false" onMouseClicked="#switchCheck" text="Hard">
+         <font>
+            <Font name="Tempus Sans ITC" size="12.0" />
+         </font>
+      </CheckBox>
+      <Label fx:id="instruction" alignment="CENTER" layoutX="100.0" layoutY="92.0" prefHeight="17.0" prefWidth="227.0" text="Select a difficulty below:">
+         <font>
+            <Font name="Tempus Sans ITC" size="12.0" />
+         </font>
+      </Label>
+      <ImageView fx:id="gif1" fitHeight="113.0" fitWidth="211.0" layoutX="123.0" layoutY="81.0" pickOnBounds="true" preserveRatio="true" visible="false" />
+      <ImageView fx:id="gif2" fitHeight="113.0" fitWidth="200.0" layoutX="222.0" layoutY="81.0" pickOnBounds="true" preserveRatio="true" visible="false" />
+      <ImageView fx:id="rockImageView" fitHeight="26.0" fitWidth="32.0" layoutX="26.0" layoutY="58.0" pickOnBounds="true" preserveRatio="true" visible="false" />
+      <ImageView fx:id="paperImageView" fitHeight="26.0" fitWidth="32.0" layoutX="77.0" layoutY="61.0" pickOnBounds="true" preserveRatio="true" visible="false" />
+      <ImageView fx:id="scissorImageView" fitHeight="26.0" fitWidth="32.0" layoutX="132.0" layoutY="58.0" pickOnBounds="true" preserveRatio="true" visible="false" />
+      <Circle fx:id="rockCir" fill="#ffffff00" layoutX="42.0" layoutY="71.0" onMouseClicked="#getChoice" onMouseEntered="#fillCircle" onMouseExited="#clearCircle" radius="21.0" stroke="BLACK" strokeType="INSIDE" visible="false" />
+      <Circle fx:id="paperCir" fill="#ffffff00" layoutX="93.0" layoutY="71.0" onMouseClicked="#getChoice" onMouseEntered="#fillCircle" onMouseExited="#clearCircle" radius="21.0" stroke="BLACK" strokeType="INSIDE" visible="false" />
+      <Circle fx:id="scissorCir" fill="#ffffff00" layoutX="144.0" layoutY="71.0" onMouseClicked="#getChoice" onMouseEntered="#fillCircle" onMouseExited="#clearCircle" radius="21.0" stroke="BLACK" strokeType="INSIDE" visible="false" />
+      <Label fx:id="winsNumber" layoutX="141.0" layoutY="211.0" text="0" visible="false">
+         <font>
+            <Font name="Tempus Sans ITC" size="34.0" />
+         </font>
+      </Label>
+      <Label fx:id="tiesNumber" layoutX="200.0" layoutY="211.0" text="0" visible="false">
+         <font>
+            <Font name="Tempus Sans ITC" size="34.0" />
+         </font>
+      </Label>
+      <Label fx:id="lossesNumber" layoutX="259.0" layoutY="211.0" text="0" visible="false">
+         <font>
+            <Font name="Tempus Sans ITC" size="34.0" />
+         </font>
+      </Label>
+      <Label fx:id="instruction1" layoutX="214.0" layoutY="61.0" text="Choose your next move" visible="false">
+         <font>
+            <Font name="Tempus Sans ITC" size="15.0" />
+         </font>
+      </Label>
+      <Label fx:id="winName" layoutX="140.0" layoutY="186.0" text="Wins" visible="false">
+         <font>
+            <Font name="Tempus Sans ITC" size="12.0" />
+         </font>
+      </Label>
+      <Label fx:id="tieName" layoutX="202.0" layoutY="186.0" text="Ties" visible="false">
+         <font>
+            <Font name="Tempus Sans ITC" size="12.0" />
+         </font>
+      </Label>
+      <Label fx:id="loseName" layoutX="255.0" layoutY="186.0" text="Losses" visible="false">
+         <font>
+            <Font name="Tempus Sans ITC" size="12.0" />
+         </font>
+      </Label>
+      <Label fx:id="userName" layoutX="152.0" layoutY="95.0" text="Player" visible="false">
+         <font>
+            <Font name="Tempus Sans ITC" size="15.0" />
+         </font>
+      </Label>
+      <Label fx:id="compName" layoutX="247.0" layoutY="99.0" text="Computer" visible="false">
+         <font>
+            <Font name="Tempus Sans ITC" size="15.0" />
+         </font>
+      </Label>
+    </children>
+</AnchorPane>
